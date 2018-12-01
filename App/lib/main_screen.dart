@@ -13,7 +13,7 @@ class _MainScreenState extends State<MainScreen> {
   var _isDoorLocked = true;
 
   void _initializeSocket() async {
-    _socket = await Socket.connect("10.177.16.128", 1919,
+    _socket = await Socket.connect("10.177.16.161", 1919,
         timeout: Duration(seconds: 5));
     _socket.listen(_messageHandler);
   }
