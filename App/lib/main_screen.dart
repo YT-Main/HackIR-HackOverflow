@@ -40,7 +40,9 @@ class _MainScreenState extends State<MainScreen> {
   void _changeDoorStatus(bool status, [bool popContext = true]) {
     setState(() {
       _isDoorLocked = status;
-      _socket.write(status ? "lock_door" : "unlock_door");
+      if (_socket != null) {
+        _socket.write(status ? "lock_door" : "unlock_door");
+      }
       if (popContext) {
         Navigator.of(context).pop();
       }
